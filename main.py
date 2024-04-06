@@ -1,3 +1,4 @@
+import time
 
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
@@ -14,3 +15,7 @@ async def root(request: Request):
 @app.get("/everyday1.mp4")
 async def get_video():
     return FileResponse("templates/data/def/everyday1.mp4")
+
+@app.get("/time")
+async def get_video():
+    return round(time.time() * 1000)
